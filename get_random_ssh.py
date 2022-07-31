@@ -49,7 +49,7 @@ try:
     print('Launching the browser', end=' ')
     browser = Browser(headless=True)
     print('[\u2713]')
-    print('Opening a URI:', ssh_uri, end=' ')
+    print(f"Opening a URI: '{ssh_uri}'", end=' ')
     browser.get(ssh_uri)
     print('[\u2713]')
     print('Accepting cookies', end=' ')
