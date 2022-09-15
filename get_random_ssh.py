@@ -20,7 +20,11 @@ def page_element(find_by, element, action='', action_args='', timeout=30):
                         getattr(page_element, action)()
                     return True
                 except Exception as error:
-                    print(error)
+                    if 'Element is not clickable' in str(error):
+                        browser.execute_script('window.scrollTo(0, 1350)')
+                        page_element = ''
+                    else:
+                        print(str(error))
             else:
                 return page_element.text
         except Exception:
