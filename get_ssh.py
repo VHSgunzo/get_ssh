@@ -47,7 +47,7 @@ def write_data_to_file(file_path, data):
 
 
 try:
-    ssh_uri = 'https://opentunnel.net'
+    ssh_uri = 'https://opentunnel.net/ssh'
     print('Launching the browser', end=' ')
     browser = Browser(headless=True)
     print('[\u2713]')
@@ -58,12 +58,12 @@ try:
     page_element(By.XPATH, "//button[@class='btn btn-outline-light w-100']", 'click')
     print('[\u2713]')
     print('Creating a list of SSH servers...\n')
-    all_ssh_list = browser.find_elements(By.XPATH, "//div[@class='my-2 p-2 bg-white rounded shadow-sm']")
+    all_ssh_list = browser.find_elements(By.XPATH, "//div[@class='col-lg-3 mb-5 mb-lg-4']")
     ssh_list = {}
     ssh_num = 1
     for ssh in all_ssh_list:
         try:
-            ssh_list[str(ssh_num)] = ssh.find_element(By.XPATH, ".//a[@class='btn btn-outline-primary']")
+            ssh_list[str(ssh_num)] = ssh.find_element(By.XPATH, ".//a[@class='btn btn-primary']")
             cur_ssh = ssh.text.replace('\nCreate', '').replace('SSH SSL', '\nSSH SSL').\
                 replace('Squid', '\nSquid').replace('CF Host', '\nCF Host').\
                 replace('DNS Host', '\nDNS Host').replace('SSH Server ', '').replace('\n', '\n   ')

@@ -49,7 +49,7 @@ def write_data_to_file(file_path, data):
 
 
 try:
-    ssh_uri = 'https://opentunnel.net'
+    ssh_uri = 'https://opentunnel.net/ssh'
     print('Launching the browser', end=' ')
     browser = Browser(headless=True)
     print('[\u2713]')
@@ -60,7 +60,7 @@ try:
     page_element(By.XPATH, "//button[@class='btn btn-outline-light w-100']", 'click')
     print('[\u2713]')
     print('Creating a list of SSH servers', end=' ')
-    ssh_list = browser.find_elements(By.XPATH, "//a[@class='btn btn-outline-primary']")
+    ssh_list = browser.find_elements(By.XPATH, "//a[@class='btn btn-primary']")
     print('[\u2713]')
     print('Choosing a random SSH server', end=' ')
     browser.get(ssh_list[randint(1, len(ssh_list))].get_attribute('href'))
